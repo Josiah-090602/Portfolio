@@ -1,10 +1,11 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import { cn } from '@/lib/utils'
-import { Kanit, Montserrat } from 'next/font/google'
+import { Kanit, Montserrat, Poppins } from 'next/font/google'
 import AuthProvider from '@/components/ui/providers/session'
+import { ThemeProvider } from '@/components/ui/providers/theme/theme-provider'
 
-const kanit = Kanit({
+const kanit = Poppins({
   weight: ['300', '400', '500', '600', '700', '800', '900'],
   subsets: ['latin'],
   display: 'swap',
@@ -34,7 +35,14 @@ export default function RootLayout({
           kanit.className,
         )}
       >
-        <AuthProvider>{children}</AuthProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <AuthProvider>{children}</AuthProvider>
+        </ThemeProvider>
       </body>
     </html>
   )
