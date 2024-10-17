@@ -9,7 +9,7 @@ async function main() {
     where: { email: 'alice@prisma.io' },
     update: {},
     create: {
-      email: 'admin@gmail.com',
+      email: 'viernesjosiah6@gmail.com',
       password: hashPassword,
     },
   })

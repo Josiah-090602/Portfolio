@@ -2,15 +2,17 @@
 import React, { useState } from 'react'
 import { Sidebar, SidebarBody, SidebarLink } from '@/components/ui/sidebar'
 import {
-  IconArrowLeft,
-  IconBrandTabler,
-  IconSettings,
-  IconUserBolt,
+  IconStack2,
+  IconLayoutDashboard,
+  IconStairs,
+  IconLogout2,
 } from '@tabler/icons-react'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import Image from 'next/image'
 import { cn } from '@/lib/utils'
+import Logo from './Logo'
+import { ModeToggle } from '../providers/theme/theme-toggle'
 
 export function Side({ children }: { children: React.ReactNode }) {
   const links = [
@@ -18,21 +20,21 @@ export function Side({ children }: { children: React.ReactNode }) {
       label: 'Dashboard',
       href: '/admin/dashboard',
       icon: (
-        <IconBrandTabler className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+        <IconLayoutDashboard className="text-neutral-700 dark:text-neutral-200 h-6 w-6 flex-shrink-0" />
       ),
     },
     {
       label: 'Experience',
       href: '/admin/experience',
       icon: (
-        <IconUserBolt className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+        <IconStairs className="text-neutral-700 dark:text-neutral-200 h-6 w-6 flex-shrink-0" />
       ),
     },
     {
       label: 'Projects',
-      href: '/',
+      href: '/admin/projects',
       icon: (
-        <IconSettings className="text-neutral-700 dark:text-neutral-200 h-5 w-5 flex-shrink-0" />
+        <IconStack2 className="text-neutral-700 dark:text-neutral-200 h-6 w-6 flex-shrink-0" />
       ),
     },
   ]
@@ -40,67 +42,37 @@ export function Side({ children }: { children: React.ReactNode }) {
   return (
     <div
       className={cn(
-        'rounded-md flex flex-col md:flex-row w-full flex-1 max-w-7xl mx-auto border  overflow-hidden',
+        'rounded-md flex flex-col md:flex-row w-full flex-1 bg-background overflow-hidden',
         'h-screen',
       )}
     >
-      <Sidebar open={open} setOpen={setOpen}>
-        <SidebarBody className="justify-between gap-10">
+      <Sidebar animate={false}>
+        <SidebarBody className=" !bg-background justify-between gap-10 border-r">
           <div className="flex flex-col flex-1 overflow-y-auto overflow-x-hidden">
-            {open ? <Logo /> : <LogoIcon />}
+            <Link
+              href="#"
+              className="font-normal flex space-x-2 items-center text-sm text-black py-1 relative z-20"
+            >
+              <div className="flex items-center gap-4">
+                <Logo size={30} />
+
+                <p className="text-foreground text-xl font-semibold">
+                  JOSIAH <span>VIERNES</span>
+                </p>
+              </div>
+            </Link>
+
             <div className="mt-8 flex flex-col gap-2">
               {links.map((link, idx) => (
                 <SidebarLink key={idx} link={link} />
               ))}
             </div>
           </div>
-          <div>
-            <SidebarLink
-              link={{
-                label: 'Manu Arora',
-                href: '#',
-                icon: (
-                  <Image
-                    src="https://assets.aceternity.com/manu.png"
-                    className="h-7 w-7 flex-shrink-0 rounded-full"
-                    width={50}
-                    height={50}
-                    alt="Avatar"
-                  />
-                ),
-              }}
-            />
-          </div>
+          <ModeToggle />
         </SidebarBody>
       </Sidebar>
-      {children}
+
+      <div className="p-4 w-screen">{children}</div>
     </div>
-  )
-}
-export const Logo = () => {
-  return (
-    <Link
-      href="#"
-      className="font-normal flex space-x-2 items-center text-sm text-black py-1 relative z-20"
-    >
-      <div className="h-5 w-6 bg-black dark:bg-white rounded-br-lg rounded-tr-sm rounded-tl-lg rounded-bl-sm flex-shrink-0" />
-      <motion.span
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        className="font-medium text-black dark:text-white whitespace-pre"
-      >
-        Acet Labs
-      </motion.span>
-    </Link>
-  )
-}
-export const LogoIcon = () => {
-  return (
-    <Link
-      href="#"
-      className="font-normal flex space-x-2 items-center text-sm text-black py-1 relative z-20"
-    >
-      <div className="h-5 w-6 bg-black dark:bg-white rounded-br-lg rounded-tr-sm rounded-tl-lg rounded-bl-sm flex-shrink-0" />
-    </Link>
   )
 }

@@ -4,14 +4,7 @@ import { ModeToggle } from '@/components/ui/providers/theme/theme-toggle'
 import React from 'react'
 
 const Dashboard = () => {
-  return (
-    <div>
-      <form action={logout}>
-        <Button>Logout</Button>
-      </form>
-      <ModeToggle />
-    </div>
-  )
+  return <div>Dashboards</div>
 }
 
 export default Dashboard

@@ -1,5 +1,4 @@
 'use client'
-
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
@@ -24,6 +23,8 @@ import {
   CardFooter,
 } from '@/components/ui/card'
 import { login } from '../_actions/actions'
+import Image from 'next/image'
+import Logo from '@/components/ui/core/Logo'
 
 export const LoginSchema = z.object({
   email: z.string().email({
@@ -57,15 +58,16 @@ export default function LoginPage() {
   return (
     <div className="flex items-center justify-center min-h-screen">
       <Card className="w-full max-w-md">
-        <CardHeader>
-          <CardTitle>Login</CardTitle>
+        <CardHeader className="flex items-center">
+          <Logo size={100} />
+          <CardTitle className="text-xl">Login</CardTitle>
           <CardDescription>
             Enter your credentials to access your account
           </CardDescription>
         </CardHeader>
         <CardContent>
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
               <FormField
                 control={form.control}
                 name="email"
