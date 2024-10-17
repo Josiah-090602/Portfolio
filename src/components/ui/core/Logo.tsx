@@ -14,9 +14,9 @@ const Logo = ({ size }: LogoProps) => {
   return (
     <>
       {theme.resolvedTheme === 'dark' ? (
-        <Image src={LogoLight} alt="Logo Dark" width={size} height={size} />
+        <Image src={LogoDark} alt="Logo Dark" width={size} height={size} />
       ) : (
-        <Image src={LogoDark} alt="Logo Light" width={size} height={size} />
+        <Image src={LogoLight} alt="Logo Light" width={size} height={size} />
       )}
     </>
   )
