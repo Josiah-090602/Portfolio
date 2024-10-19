@@ -54,8 +54,10 @@ const Side = () => {
               size={'lg'}
               variant={'ghost'}
               className={cn(
-                'w-full justify-start px-5 gap-[1.2rem] rounded-none text-base',
-                path === link.href ? 'bg-accent text-blue-700' : '',
+                'w-full justify-start px-5 gap-[1.2rem] rounded-none text-base text-white hover:bg-slate-800/90 hover:text-blue-400',
+                path === link.href
+                  ? 'bg-slate-800/90 text-blue-700 hover:text-blue-700'
+                  : '',
               )}
             >
               {link.icon}
