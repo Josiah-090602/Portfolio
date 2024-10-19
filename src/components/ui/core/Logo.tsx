@@ -1,3 +1,4 @@
+'use client'
 import React from 'react'
 import { useTheme } from 'next-themes'
 import Image from 'next/image'
@@ -11,7 +12,6 @@ type LogoProps = {
 
 const Logo = ({ size }: LogoProps) => {
   const theme = useTheme()
-
   return (
     <>
       {theme.resolvedTheme === 'dark' ? (

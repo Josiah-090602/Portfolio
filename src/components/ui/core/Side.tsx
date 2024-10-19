@@ -1,8 +1,6 @@
 'use client'
 import React from 'react'
-import Logo from './Logo'
-import { ModeToggle } from '../providers/theme/theme-toggle'
-import LogoDark from '@/../public/images/LogoDark.svg'
+import GradientLogo from '@/../public/images/GradientLogo.svg'
 import Image from 'next/image'
 import { Separator } from '@/components/ui/separator'
 import {
@@ -10,7 +8,6 @@ import {
   IconStack2,
   IconBriefcase,
 } from '@tabler/icons-react'
-import { SidebarLink } from '../sidebar'
 import Link from 'next/link'
 import { Button } from '../button'
 import { usePathname } from 'next/navigation'
@@ -40,7 +37,7 @@ const Side = () => {
   return (
     <div className="flex flex-col justify-start items-center fixed left-0 top-0 h-screen bg-slate-950 w-[4rem] transition-all ease-in-out duration-300 hover:w-[18rem] overflow-hidden border-r">
       <div className=" p-4 w-full flex text-white items-center gap-[1.1rem] whitespace-nowrap">
-        <Image src={LogoDark} alt="Logo Dark" width={30} height={30} />
+        <Image src={GradientLogo} alt="Logo Dark" width={30} height={30} />
         <p className="text-xl ">
           JOSIAH <span className="text-blue-700 font-bold">VIERNES</span>
         </p>

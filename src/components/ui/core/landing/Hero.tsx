@@ -45,7 +45,7 @@ export function Hero() {
   return (
     <div className="h-screen w-screen rounded-md bg-transparent relative flex flex-col items-center justify-center antialiased">
       <TopNav />
-      <div className="max-w-fit flex flex-col gap-8 items-center">
+      <div className="max-w-screen flex flex-col gap-8 items-center">
         {/* <BackgroundBeams /> */}
         <AnimatedGradientText className="text-center z-100">
           <IconCode className="h-4 w-4 " />
@@ -71,7 +71,7 @@ export function Hero() {
             icon={<IconDownload className="w-5 h-5" />}
           />
         </div>
-        <div className="opacity-10 z-[-1]">
+        <div className="opacity-40 z-[-1]">
           <BackgroundBeams />
         </div>
       </div>
@@ -86,14 +86,11 @@ export const TopNav = () => {
       <div className="flex gap-3 items-center">
         {socials.map((social, idx) => (
           <Link key={idx} href={social.url}>
-            {/* <Button variant={'ghost'} size={'icon'} className="rounded-full"> */}
             <p className="text-xs font-thin hover:underline">{social.name} </p>
-
-            {/* </Button> */}
           </Link>
         ))}
-        <Separator orientation="vertical" className="mx-1" />
-        <ModeToggle />
+        {/* <Separator orientation="vertical" className="mx-1" />
+        <ModeToggle variant="switch" /> */}
       </div>
     </div>
   )

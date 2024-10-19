@@ -13,7 +13,7 @@ const TopBar = () => {
         <Link href={''}> Breadcrumbs </Link>
       </div>
       <div className="flex gap-2 p-2 w-fit h-fill border rounded-md">
-        <ModeToggle />
+        <ModeToggle variant="dropdown" />
         <form action={logout}>
           <Button variant={'outline'} className="gap-2 py-1">
             <IconLogout2 name="log-out" size={24} />
