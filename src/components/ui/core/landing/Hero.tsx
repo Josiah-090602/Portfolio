@@ -83,14 +83,12 @@ export const TopNav = () => {
   return (
     <div className="w-screen flex py-5 px-4 md:px-[10rem] lg:px-[15rem] justify-between z-50 fixed top-0">
       <Logo size={30} />
-      <div className="flex gap-3 items-center">
+      <div className="flex gap-2 items-center">
         {socials.map((social, idx) => (
           <Link key={idx} href={social.url}>
-            <p className="text-xs font-thin hover:underline">{social.name} </p>
+            <p className="text-xs font-thin hover:underline">{social.name}</p>
           </Link>
         ))}
-        {/* <Separator orientation="vertical" className="mx-1" />
-        <ModeToggle variant="switch" /> */}
       </div>
     </div>
   )

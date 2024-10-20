@@ -11,7 +11,12 @@ import {
 } from '@/components/ui/tooltip'
 import { cn } from '@/lib/utils'
 import { Separator } from '@/components/ui/separator'
-import { IconHome, IconBriefcase, IconStack2 } from '@tabler/icons-react'
+import {
+  IconHome,
+  IconBriefcase,
+  IconStack2,
+  IconUser,
+} from '@tabler/icons-react'
 import Link from 'next/link'
 import { ModeToggle } from '@/components/ui/providers/theme/theme-toggle'
 
@@ -20,6 +25,11 @@ const links = [
     label: 'Home',
     href: '/',
     icon: <IconHome className=" size-6 " />,
+  },
+  {
+    label: 'About Me',
+    href: '/about',
+    icon: <IconUser className=" size-6 " />,
   },
   {
     label: 'Experience',
@@ -42,7 +52,7 @@ export default function Home() {
           <Dock
             magnification={50}
             direction="bottom"
-            className="bg-gradient-to-l from-cyan-800/20 to-purple-800/20 w-fit  fixed bottom-10 left-0 right-0 flex self-center h-fit justify-center gap-2 p-2 mt-0"
+            className="bg-gradient-to-l from-cyan-800/30 to-purple-800/30 fixed bottom-10 left-0 right-0 flex self-center h-fit justify-center gap p-3 mt-0 "
           >
             {links.map((link, idx) => (
               <DockIcon magnification={100} key={idx}>
@@ -67,13 +77,16 @@ export default function Home() {
                 </TooltipProvider>
               </DockIcon>
             ))}
-            <Separator orientation="vertical" className="h-full !bg-white" />
-
+            <DockIcon className="!w-10" size={10}>
+              <Separator orientation="vertical" className="p-0" />
+            </DockIcon>
             <DockIcon>
               <TooltipProvider>
                 <Tooltip>
                   <TooltipTrigger asChild>
-                    <ModeToggle variant="switch" />
+                    <div className="flex">
+                      <ModeToggle variant="switch" />
+                    </div>
                   </TooltipTrigger>
                   <TooltipContent className="bg-foreground text-xs">
                     <p>Mode</p>
